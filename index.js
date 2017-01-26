@@ -229,7 +229,6 @@ function round(num) {
 }
 
 function shuffle(array, duplicate) {
-  // todo: optimize shuffle for copying
   var shuffledArray = duplicate ? [].concat(_toConsumableArray(array)) : array;
   for (var i = 0, length = array.length; i < length; i++) {
     var randomIndex = Math.floor(Math.random() * (length - i));

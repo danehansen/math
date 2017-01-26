@@ -1,21 +1,36 @@
 {
   "name": "@danehansen/math",
-  "version": "0.1.5",
+  "version": "0.1.10",
   "description": "math",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --compilers js:babel-register -w",
     "coverage": "nyc mocha --compilers js:babel-register",
     "coverage-report": "nyc --reporter=html mocha --compilers js:babel-register",
-    "test": "mocha --compilers js:babel-register -w",
-    "prepublish": "babel src/math.js --out-file index.js"
+
+    "_test": "mocha --compilers js:babel-register",
+    "_babel": "babel src/math.js --out-file index.js",
+    "max": "npm run _test && npm run _babel",
+
+    "_babel_min": "babel src/danehansen-math.js --out-file danehansen-math.min.js",
+    "_webpack_min": "webpack danehansen-math.min.js danehansen-math.min.js --define __BROWSER__=true",
+    "_uglify_min": "uglifyjs danehansen-math.min.js -o danehansen-math.min.js -c dead_code,unused -m",
+    "min": "npm run _babel_min && npm run _webpack_min && npm run _uglify_min",
+
+    "prepublish": "npm run _babel",
+    "everything": "npm run coverage-report && npm run max && npm run min",
+    "git": "git add -A && git commit -m 'squish me' & git push -f origin master",
+    "pub": "npm run everything && npm run git && npm publish --access public"
   },
   "keywords": [
     "math",
-    "random"
+    "random",
+    "utilities"
   ],
   "author": "Dane Hansen <dane@danehansen.com> (http://www.danehansen.com/)",
   "license": "MIT",
   "devDependencies": {
+    "@danehansen/package-helpers": "latest",
     "@danehansen/point": "latest",
     "babel-cli": "^6.22.2",
     "babel-preset-es2015": "^6.18.0",
@@ -23,7 +38,9 @@
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "nyc": "^10.1.2"
+    "nyc": "^10.1.2",
+    "uglify-js": "^2.7.5",
+    "webpack": "^1.14.0"
   },
   "repository": {
     "type": "git",

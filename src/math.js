@@ -157,7 +157,6 @@ export function round(num, increment = 1) {
 }
 
 export function shuffle(array, duplicate) {
-  // todo: optimize shuffle for copying
   const shuffledArray = duplicate ? [...array] : array
   for (let i = 0, length = array.length; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * (length - i))

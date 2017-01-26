@@ -1,18 +1,28 @@
-#math#
+# math
 
-The math library contains a collection of mathematical equations either written or collected to make shit easier and awesomer.
+The math library contains a collection of mathematical equations either written or collected to make my life easier.
 
-##Installation##
+## Installation
 
 `npm install --save @danehansen/math`
 
-##Usage##
+## Usage
+
+As a module:
 
     import * as math from '@danehansen/math';
 
     var r = math.random(1, 100, true);
 
-##Public Methods##
+In your browser:
+
+    <script src='danehansen-math.min.js'></script>
+    <script>
+      var math = window.danehansen.math;
+      var r = math.random(1, 100, true);
+    </script>
+
+## Methods
 
 * __average__(...args):Number  
 Accepts either an unlimited quantity of numbers or an array of numbers and returns the total.
