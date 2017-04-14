@@ -1,6 +1,6 @@
 {
   "name": "@danehansen/math",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "math",
   "main": "index.js",
   "scripts": {
