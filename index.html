@@ -59,8 +59,12 @@ Similar to the modulo (%) operator, but rather than mirroring at 0, it continues
 Returns an array of all prime numbers between 0 and limit.</li>
 <li><strong>random</strong>(limitA:Number, limitB:Number = 0, round:Boolean = false, choke:int = 1):Number <br />
 Returns a random number between limit1 and limit2. Optionally, it will be rounded. The choke... tough one to explain. It is a representation of how to make the random number favor towards the middle of the two limits. There is a difference between Math.random()*2, and Math.random()+Math.random(), and this argument builds upon that. If you covered a square with 100 points all with random x and y positions, leaving the natural factor would result in scattered points like until a section of a starry night. With natural bumped up to 2 or higher, it would look more like a shotgun blast.</li>
-<li><strong>randomChoice</strong>(array:* = [-1,1], choke:int = 1):* <br />
-Returns a random value from the provided array or list. The default is [-1,1] for instances when you need to randomly determine if something should be left or right, up or down.</li>
+<li><strong>randomBoolean</strong>():Boolean <br />
+Returns either true or false.</li>
+<li><strong>randomDirection</strong>():int <br />
+Returns either 1 or -1.</li>
+<li><strong>randomItem</strong>(array:<em>, choke:int = 1):</em> <br />
+Returns a random item from the provided array or list.</li>
 <li><strong>relativePercentage</strong>(start:Number, end:Number, current:Number):Number <br />
 Returns the position of current in reference to a scale between start and end. Example: relativePercentage(2,4,3) returns 0.5.</li>
 <li><strong>round</strong>(num:Number, increment:Number):Number <br />

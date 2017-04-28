@@ -271,7 +271,7 @@ describe('random', function() {
 })
 
 
-describe('randomChoice', function() {
+describe('randomItem', function() {
   it('returns value from array', function() {
     repeatTest(function() {
       const array = []
@@ -279,13 +279,23 @@ describe('randomChoice', function() {
       for (let i = 0; i < len; i++) {
         array.push(math.random(RANGE))
       }
-      expect(array.indexOf(math.randomChoice(array))).to.be.above(-1)
+      expect(array.indexOf(math.randomItem(array))).to.be.above(-1)
     })
   })
+})
 
-  it('returns 1 or -1 with no array', function() {
+describe('randomDirection', function() {
+  it('returns 1 or -1', function() {
     repeatTest(function() {
-      expect([-1, 1]).to.include(math.randomChoice(undefined, Math.random() > 0.5 ? 1 : undefined))
+      expect([-1, 1]).to.include(math.randomDirection())
+    })
+  })
+})
+
+describe('randomBoolean', function() {
+  it('returns true or false', function() {
+    repeatTest(function() {
+      expect([true, false]).to.include(math.randomBoolean())
     })
   })
 })
@@ -476,10 +486,10 @@ describe('total', function() {
     for (let i = 0; i < length; i++) {
       const value = Math.random() > 0.5
       if (value) {
-        array.push(math.randomChoice(truthyValues))
+        array.push(math.randomItem(truthyValues))
         total += 1
       } else {
-        array.push(math.randomChoice(nonTruthyValues))
+        array.push(math.randomItem(nonTruthyValues))
       }
     }
     expect(math.total(array)).to.equal(total)

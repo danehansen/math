@@ -48,8 +48,12 @@ Similar to the modulo (%) operator, but rather than mirroring at 0, it continues
 Returns an array of all prime numbers between 0 and limit.
 * __random__(limitA:Number, limitB:Number = 0, round:Boolean = false, choke:int = 1):Number  
 Returns a random number between limit1 and limit2. Optionally, it will be rounded. The choke... tough one to explain. It is a representation of how to make the random number favor towards the middle of the two limits. There is a difference between Math.random()*2, and Math.random()+Math.random(), and this argument builds upon that. If you covered a square with 100 points all with random x and y positions, leaving the natural factor would result in scattered points like until a section of a starry night. With natural bumped up to 2 or higher, it would look more like a shotgun blast.
-* __randomChoice__(array:* = [-1,1], choke:int = 1):*  
-Returns a random value from the provided array or list. The default is [-1,1] for instances when you need to randomly determine if something should be left or right, up or down.
+* __randomBoolean__():Boolean  
+Returns either true or false.
+* __randomDirection__():int  
+Returns either 1 or -1.
+* __randomItem__(array:*, choke:int = 1):*  
+Returns a random item from the provided array or list.
 * __relativePercentage__(start:Number, end:Number, current:Number):Number  
 Returns the position of current in reference to a scale between start and end. Example: relativePercentage(2,4,3) returns 0.5.
 * __round__(num:Number, increment:Number):Number  

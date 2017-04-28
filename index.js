@@ -15,7 +15,9 @@ exports.luhn = luhn;
 exports.modulo = modulo;
 exports.primes = primes;
 exports.random = random;
-exports.randomChoice = randomChoice;
+exports.randomItem = randomItem;
+exports.randomDirection = randomDirection;
+exports.randomBoolean = randomBoolean;
 exports.relativePercentage = relativePercentage;
 exports.round = round;
 exports.shuffle = shuffle;
@@ -211,11 +213,18 @@ function random() {
   }
 }
 
-function randomChoice() {
-  var array = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [-1, 1];
+function randomItem(array) {
   var choke = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
   return array[random(0, array.length - 1, true, choke)];
+}
+
+function randomDirection() {
+  return Math.random() > 0.5 ? 1 : -1;
+}
+
+function randomBoolean() {
+  return Math.random() > 0.5 ? true : false;
 }
 
 function relativePercentage(start, end, current) {

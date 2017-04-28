@@ -144,8 +144,16 @@ export function random(limitA = 1, limitB = 0, round = false, choke = 1) {
   }
 }
 
-export function randomChoice(array = [-1, 1], choke = 1) {
+export function randomItem(array, choke = 1) {
   return array[random(0, array.length - 1, true, choke)]
+}
+
+export function randomDirection() {
+  return Math.random() > 0.5 ? 1 : -1
+}
+
+export function randomBoolean() {
+  return Math.random() > 0.5 ? true : false
 }
 
 export function relativePercentage(start, end, current) {
