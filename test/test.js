@@ -1,6 +1,5 @@
 import { expect } from 'chai'
 import * as math from '../src/math'
-import Point from '@danehansen/point'
 
 const TRUNCATE = 100000
 const RANGE = 10
@@ -17,6 +16,10 @@ function repeatTest(func, results) {
       results[result] = (results[result] || 0) + 1
     }
   }
+}
+
+function distance(pointA, pointB) {
+  return Math.sqrt(Math.pow(pointA.x - pointB.x, 2) + Math.pow(pointA.y - pointB.y, 2))
 }
 
 describe('average', function() {
@@ -58,8 +61,8 @@ describe('circleIntersection', function() {
       { x: 5, y: 5 },
       5,
     )
-    expect(Point.distance(points[0], {x: 0, y: 5})).to.be.below(0.0001)
-    expect(Point.distance(points[1], {x: 5, y: 0})).to.be.below(0.0001)
+    expect(distance(points[0], {x: 0, y: 5})).to.be.below(0.0001)
+    expect(distance(points[1], {x: 5, y: 0})).to.be.below(0.0001)
   })
 
   it('finds only intersection', function() {
