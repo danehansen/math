@@ -113,6 +113,10 @@ export function modulo(num, limit) {
   }
 }
 
+export function normalize(low, high, value) {
+  return (value - low) / (high - low);
+}
+
 export function primes(limit) {
   const sieve = [];
   const primes = [];
@@ -156,8 +160,10 @@ export function randomBoolean() {
   return Math.random() > 0.5 ? true : false;
 }
 
+// TODO: deprecate
 export function relativePercentage(start, end, current) {
-  return (current - start) / (end - start);
+  console.log("relativePercentage is deprecated. plz switch to normalize");
+  return normalize(start, end, current);
 }
 
 export function round(num, increment = 1) {

@@ -226,6 +226,16 @@ describe("math", function() {
     });
   });
 
+  describe("normalize", function() {
+    it("returns a normalized value between two extremes", function() {
+      expect(math.normalize(0, 10, 5)).to.equal(0.5);
+      expect(math.normalize(10, 30, 25)).to.equal(0.75);
+      expect(math.normalize(30, 10, 25)).to.equal(0.25);
+      expect(math.normalize(-1, -2, -1.75)).to.equal(0.75);
+      expect(math.normalize(-2, -1, -1.75)).to.equal(0.25);
+    });
+  });
+
   describe("primes", function() {
     it("returns all prime numbers below uint limit", function() {
       expect(math.primes(20)).to.deep.equal([2, 3, 5, 7, 11, 13, 17, 19]);
@@ -351,16 +361,6 @@ describe("math", function() {
       repeatTest(function() {
         expect([true, false]).to.include(math.randomBoolean());
       });
-    });
-  });
-
-  describe("relativePercentage", function() {
-    it("finds progress of current relative between start and end", function() {
-      expect(math.relativePercentage(0, 10, 5)).to.equal(0.5);
-      expect(math.relativePercentage(10, 30, 25)).to.equal(0.75);
-      expect(math.relativePercentage(30, 10, 25)).to.equal(0.25);
-      expect(math.relativePercentage(-1, -2, -1.75)).to.equal(0.75);
-      expect(math.relativePercentage(-2, -1, -1.75)).to.equal(0.25);
     });
   });
 

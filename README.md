@@ -44,6 +44,8 @@ In your browser:
   Returns whether or not an integer meets the Luhn validation.
 - **modulo**(num:Number, limit:Number):Number  
   Similar to the modulo (%) operator, but rather than mirroring at 0, it continues past 0. For example, -1%4=-1, but modulo(-1, 4)=3. Great for when you decrement a value below 0 and need the functionality to wrap, like an image gallery.
+- **normalize**(low:Number, high:Number, value:Number):Number  
+  Returns the normalized value relative to two extremes. Example: normalize(2,4,3) returns 0.5.
 - **primes**(limit:Number):Array  
   Returns an array of all prime numbers between 0 and limit.
 - **random**(limitA:Number, limitB:Number = 0, round:Boolean = false, choke:int = 1):Number  
@@ -54,8 +56,6 @@ In your browser:
   Returns either 1 or -1.
 - **randomItem**(array:_, choke:int = 1):_  
   Returns a random item from the provided array or list.
-- **relativePercentage**(start:Number, end:Number, current:Number):Number  
-  Returns the position of current in reference to a scale between start and end. Example: relativePercentage(2,4,3) returns 0.5.
 - **round**(num:Number, increment:Number):Number  
   Returns a number rounded by the increment, rather than by 1.
 - **shuffle**(array:Number, duplicate:Boolean = false):Array  

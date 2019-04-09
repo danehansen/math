@@ -1,6 +1,6 @@
 {
   "name": "@danehansen/math",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "math",
   "main": "danehansen-math.min.js",
   "scripts": {
