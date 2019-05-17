@@ -1,18 +1,18 @@
 {
   "name": "@danehansen/math",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "math",
   "main": "danehansen-math.min.js",
   "scripts": {
+    "buildindex": "package-helpers-buildindex srcHtml=./src/index.html srcReadme=./README.md dest=./index.html",
+    "coverage-report": "nyc --reporter=html mocha  --require babel-register",
+    "coverage": "nyc mocha  --require babel-register",
     "max": "webpack",
+    "min": "webpack -p",
     "test": "mocha --require babel-register",
     "test-watch": "mocha --require babel-register -w",
-    "coverage": "nyc mocha  --require babel-register",
-    "coverage-report": "nyc --reporter=html mocha  --require babel-register",
-    "git": "git add -A && git commit -m 'squish me' & git push -f origin master",
-    "min": "webpack -p",
-    "pub": "npm run test && npm run min && sleep 1 && npm run git && npm publish --access public",
-    "prepublish": "npm run max"
+    "pub": "npm publish --access public",
+    "prepublish": "npm run min && npm run test && npm run max && npm run buildindex"
   },
   "keywords": [
     "math",
@@ -22,7 +22,7 @@
   "author": "Dane Hansen <dane@danehansen.com> (http://www.danehansen.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@danehansen/package-helpers": "^0.2.0",
+    "@danehansen/package-helpers": "^0.2.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>math</title>
+    <style>
+      
+body {
+  background-color: #fff;
+  color: #000;
+  font-family: Helvetica, Arial;
+  font-size: 12px;
+  padding: 50px;
+}
+
+body > div {
+  margin-top: 30px;
+  padding: 20px 0;
+  width: 600px;
+}
+
+body > div,
+footer {
+  border-top: 1px solid #000;
+}
+
+footer {
+  padding-top: 20px;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>math <img src="https://img.shields.io/bundlephobia/minzip/@danehansen/math.svg" alt="npm bundle size (scoped)" /> <img src="https://img.shields.io/npm/dt/@danehansen/math.svg" alt="npm" /></h1>
+<p>The math library contains a collection of mathematical equations either written or collected to make my life easier.</p>
+<h2>Installation</h2>
+<p><code>npm install --save @danehansen/math</code></p>
+<h2>Usage</h2>
+<p>As a module:</p>
+<pre><code>import * as math from '@danehansen/math';
+
+var r = math.random(1, 100, true);
+</code></pre>
+<p>In your browser:</p>
+<pre><code>&lt;script src='danehansen-math.min.js'&gt;&lt;/script&gt;
+&lt;script&gt;
+  var math = window.danehansen.math;
+  var r = math.random(1, 100, true);
+&lt;/script&gt;
+</code></pre>
+<h2>Methods</h2>
+<ul>
+<li><strong>average</strong>(…args):Number<br />
+Accepts either an unlimited quantity of numbers or an array of numbers and returns the total.</li>
+<li><strong>ceil</strong>(num:Number, increment:Number = 1):Number<br />
+Rounds a number up to the nearest increment.</li>
+<li><strong>circleIntersection</strong>(centerA:Point, radiusA:Number, centerB:Point, radiusB:Number):Number<br />
+Returns an array of the two points at which 2 circles intersect, if they intersect.</li>
+<li><strong>ease</strong>(current:Number, dest:Number, speed:Number = 0.05):Number<br />
+Eases a number towards the destination by a factor of speed. Great for making a display object follow a mouse cursor or some other moving target.</li>
+<li><strong>easeProp</strong>(targ:Object, key:String, dest:Number, speed:Number = 0.05)<br />
+Brings the object’s provided property (targ[key]) towards the destination by a factor of speed. Great for making a display object follow a mouse cursor or some other moving target.</li>
+<li><strong>euclid</strong>(a:int, b:int):int<br />
+Returns the greatest common divisor of two integers.</li>
+<li><strong>floor</strong>(num:Number, increment:Number = 1):Number<br />
+Rounds a number down to the nearest increment.</li>
+<li><strong>intLength</strong>(num:uint):uint<br />
+Returns the number of decimals in an integer.</li>
+<li><strong>luhn</strong>(num:uint):Boolean<br />
+Returns whether or not an integer meets the Luhn validation.</li>
+<li><strong>modulo</strong>(num:Number, limit:Number):Number<br />
+Similar to the modulo (%) operator, but rather than mirroring at 0, it continues past 0. For example, -1%4=-1, but modulo(-1, 4)=3. Great for when you decrement a value below 0 and need the functionality to wrap, like an image gallery.</li>
+<li><strong>normalize</strong>(low:Number, high:Number, value:Number):Number<br />
+Returns the normalized value relative to two extremes. Example: normalize(2,4,3) returns 0.5.</li>
+<li><strong>primes</strong>(limit:Number):Array<br />
+Returns an array of all prime numbers between 0 and limit.</li>
+<li><strong>random</strong>(limitA:Number, limitB:Number = 0, round:Boolean = false, choke:int = 1):Number<br />
+Returns a random number between limit1 and limit2. Optionally, it will be rounded. The choke… tough one to explain. It is a representation of how to make the random number favor towards the middle of the two limits. There is a difference between Math.random()*2, and Math.random()+Math.random(), and this argument builds upon that. If you covered a square with 100 points all with random x and y positions, leaving the natural factor would result in scattered points like until a section of a starry night. With natural bumped up to 2 or higher, it would look more like a shotgun blast.</li>
+<li><strong>randomBoolean</strong>():Boolean<br />
+Returns either true or false.</li>
+<li><strong>randomDirection</strong>():int<br />
+Returns either 1 or -1.</li>
+<li><strong>randomItem</strong>(array:<em>, choke:int = 1):</em><br />
+Returns a random item from the provided array or list.</li>
+<li><strong>round</strong>(num:Number, increment:Number):Number<br />
+Returns a number rounded by the increment, rather than by 1.</li>
+<li><strong>shuffle</strong>(array:Number, duplicate:Boolean = false):Array<br />
+Shuffles the provided array or list. If duplicate is set to true, the original list is left alone and the shuffled list is returned on a new array. Note: when shuffling a NodeList, always set duplicate to true as a NodeList does not shuffle well.</li>
+<li><strong>sortAscending</strong>(a:Number, b:Number):Number<br />
+Returns the difference between the a and b, meant to pass into the Array.sort method as an alternate to the default alphabetical.</li>
+<li><strong>sortDescending</strong>(a:Number, b:Number):Number<br />
+Returns the reversed difference between a and b, meant to pass into the Array.sort method as an alternate to the default alphabetical.</li>
+<li><strong>splitUint</strong>(num:int):Array<br />
+Returns an array representing each digit of an integer.</li>
+<li><strong>toDegrees</strong>(radians:Number, offset:Boolean = false):Number<br />
+Converts an angle in radians to degrees. By default, just returns an angle of the same amount measured in degrees, but when set to true will also account for offsetting by 1/4 turn.</li>
+<li><strong>toRadians</strong>(degrees:Number, offset:Boolean = false):Number<br />
+Converts an angle in degrees to radians. By default, just returns an angle of the same amount measured in radians, but when set to true will also account for offsetting by 1/4 turn.</li>
+<li><strong>total</strong>(array:*):Number<br />
+Calculates the total in an array or list of values. Truthy values will also be totaled as 1s and falsey values as 0s.</li>
+</ul>
+    <script></script>
+  </body>
+</html>
