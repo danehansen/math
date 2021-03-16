@@ -66,9 +66,13 @@ In your browser:
   Returns the reversed difference between a and b, meant to pass into the Array.sort method as an alternate to the default alphabetical.
 - **splitUint**(num:int):Array  
   Returns an array representing each digit of an integer.
-- **toDegrees**(radians:Number, offset:Boolean = false):Number  
-  Converts an angle in radians to degrees. By default, just returns an angle of the same amount measured in degrees, but when set to true will also account for offsetting by 1/4 turn.
-- **toRadians**(degrees:Number, offset:Boolean = false):Number  
-  Converts an angle in degrees to radians. By default, just returns an angle of the same amount measured in radians, but when set to true will also account for offsetting by 1/4 turn.
+- **toDegrees**(radians:Number):Number  
+  Converts radians to degrees.
+- **toDegreeDirection**(radians:Number):Number  
+  Converts an angle in radians to a direction in degrees, between 0 and 360.
+- **toRadians**(degrees:Number):Number  
+  Converts degrees to radians.
+- **toRadianDirection**(degrees:Number):Number  
+  Converts an angle in degrees to direction radians, between 0 and Math.PI * 2.
 - **total**(array:\*):Number  
   Calculates the total in an array or list of values. Truthy values will also be totaled as 1s and falsey values as 0s.

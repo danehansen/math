@@ -484,65 +484,103 @@ describe("math", function() {
     );
   });
 
-  describe("toDegrees", function() {
-    it("converts radians to degrees as an amount different than zero", function() {
-      expect(math.toDegrees(Math.PI * -2.5)).to.equal(450);
-      expect(math.toDegrees(Math.PI * -2)).to.equal(360);
-      expect(math.toDegrees(Math.PI * -1.5)).to.equal(270);
-      expect(math.toDegrees(Math.PI * -1)).to.equal(180);
-      expect(math.toDegrees(Math.PI * -0.5)).to.equal(90);
-      expect(math.toDegrees(0)).to.equal(0);
-      expect(math.toDegrees(Math.PI * 0.5)).to.equal(-90);
-      expect(math.toDegrees(Math.PI)).to.equal(-180);
-      expect(math.toDegrees(Math.PI * 1.5)).to.equal(-270);
-      expect(math.toDegrees(Math.PI * 2)).to.equal(-360);
-      expect(math.toDegrees(Math.PI * 2.5)).to.equal(-450);
+  describe('radians/degrees', function() {
+    const OCLOCK_12 = 3 * Math.PI * 2 / 12;
+    const OCLOCK_01 = 2 * Math.PI * 2 / 12;
+    const OCLOCK_02 = 1 * Math.PI * 2 / 12;
+    const OCLOCK_03 = 0 * Math.PI * 2 / 12;
+    const OCLOCK_04 = 11 * Math.PI * 2 / 12;
+    const OCLOCK_05 = 10 * Math.PI * 2 / 12;
+    const OCLOCK_06 = 9 * Math.PI * 2 / 12;
+    const OCLOCK_07 = 8 * Math.PI * 2 / 12;
+    const OCLOCK_08 = 7 * Math.PI * 2 / 12;
+    const OCLOCK_09 = 6 * Math.PI * 2 / 12;
+    const OCLOCK_10 = 5 * Math.PI * 2 / 12;
+    const OCLOCK_11 = 4 * Math.PI * 2 / 12;
+    const TOLERANCE = 0.001;
+
+    function toBeCloseTo(numA, numB) {
+      expect(numA).to.be.within(numB - TOLERANCE, numB + TOLERANCE);
+    }
+
+    describe('toRadians', function() {
+      it('converts an amount of degrees to radians', function() {
+        toBeCloseTo(math.toRadians(-30), OCLOCK_02 * -1);
+        toBeCloseTo(math.toRadians(0), OCLOCK_02 * 0);
+        toBeCloseTo(math.toRadians(30), OCLOCK_02 * 1);
+        toBeCloseTo(math.toRadians(60), OCLOCK_02 * 2);
+        toBeCloseTo(math.toRadians(90), OCLOCK_02 * 3);
+        toBeCloseTo(math.toRadians(120), OCLOCK_02 * 4);
+        toBeCloseTo(math.toRadians(150), OCLOCK_02 * 5);
+        toBeCloseTo(math.toRadians(180), OCLOCK_02 * 6);
+        toBeCloseTo(math.toRadians(210), OCLOCK_02 * 7);
+        toBeCloseTo(math.toRadians(240), OCLOCK_02 * 8);
+        toBeCloseTo(math.toRadians(270), OCLOCK_02 * 9);
+        toBeCloseTo(math.toRadians(300), OCLOCK_02 * 10);
+        toBeCloseTo(math.toRadians(330), OCLOCK_02 * 11);
+        toBeCloseTo(math.toRadians(360), OCLOCK_02 * 12);
+        toBeCloseTo(math.toRadians(390), OCLOCK_02 * 13);
+      });
     });
 
-    it("converts radians to degrees as an actual direction", function() {
-      expect(math.toDegrees(Math.PI * -2.5, true)).to.equal(540);
-      expect(math.toDegrees(Math.PI * -2, true)).to.equal(450);
-      expect(math.toDegrees(Math.PI * -1.5, true)).to.equal(360);
-      expect(math.toDegrees(Math.PI * -1, true)).to.equal(270);
-      expect(math.toDegrees(Math.PI * -0.5, true)).to.equal(180);
-      expect(math.toDegrees(0, true)).to.equal(90);
-      expect(math.toDegrees(Math.PI * 0.5, true)).to.equal(0);
-      expect(math.toDegrees(Math.PI, true)).to.equal(-90);
-      expect(math.toDegrees(Math.PI * 1.5, true)).to.equal(-180);
-      expect(math.toDegrees(Math.PI * 2, true)).to.equal(-270);
-      expect(math.toDegrees(Math.PI * 2.5, true)).to.equal(-360);
-      expect(math.toDegrees(Math.PI * 3, true)).to.equal(-450);
-    });
-  });
-
-  describe("toRadians", function() {
-    it("converts degrees to radians as an amount different than zero", function() {
-      expect(math.toRadians(-450)).to.equal(Math.PI * 2.5);
-      expect(math.toRadians(-360)).to.equal(Math.PI * 2);
-      expect(math.toRadians(-270)).to.equal(Math.PI * 1.5);
-      expect(math.toRadians(-180)).to.equal(Math.PI);
-      expect(math.toRadians(-90)).to.equal(Math.PI * 0.5);
-      expect(math.toRadians(0)).to.equal(0);
-      expect(math.toRadians(90)).to.equal(Math.PI * -0.5);
-      expect(math.toRadians(180)).to.equal(Math.PI * -1);
-      expect(math.toRadians(270)).to.equal(Math.PI * -1.5);
-      expect(math.toRadians(360)).to.equal(Math.PI * -2);
-      expect(math.toRadians(450)).to.equal(Math.PI * -2.5);
+    describe('toDegrees', function() {
+      it('converts an amount of radians to degrees', function() {
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * -1), -30);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 0), 0);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 1), 30);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 2), 60);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 3), 90);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 4), 120);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 5), 150);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 6), 180);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 7), 210);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 8), 240);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 9), 270);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 10), 300);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 11), 330);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 12), 360);
+        toBeCloseTo(math.toDegrees(OCLOCK_02 * 13), 390);
+      });
     });
 
-    it("converts degrees to radians as an actual direction", function() {
-      expect(math.toRadians(-540, true)).to.equal(Math.PI * 2.5);
-      expect(math.toRadians(-450, true)).to.equal(Math.PI * 2);
-      expect(math.toRadians(-360, true)).to.equal(Math.PI * 1.5);
-      expect(math.toRadians(-270, true)).to.equal(Math.PI * 1);
-      expect(math.toRadians(-180, true)).to.equal(Math.PI * 0.5);
-      expect(math.toRadians(-90, true)).to.equal(0);
-      expect(math.toRadians(0, true)).to.equal(Math.PI * -0.5);
-      expect(math.toRadians(90, true)).to.equal(Math.PI * -1);
-      expect(math.toRadians(180, true)).to.equal(Math.PI * -1.5);
-      expect(math.toRadians(270, true)).to.equal(Math.PI * -2);
-      expect(math.toRadians(360, true)).to.equal(Math.PI * -2.5);
-      expect(math.toRadians(450, true)).to.equal(Math.PI * -3);
+    describe('toRadianDirection', function() {
+      it('converts a direction in degrees to radians', function() {
+        toBeCloseTo(math.toRadianDirection(-30), OCLOCK_11);
+        toBeCloseTo(math.toRadianDirection(0), OCLOCK_12);
+        toBeCloseTo(math.toRadianDirection(30), OCLOCK_01);
+        toBeCloseTo(math.toRadianDirection(60), OCLOCK_02);
+        toBeCloseTo(math.toRadianDirection(90), OCLOCK_03);
+        toBeCloseTo(math.toRadianDirection(120), OCLOCK_04);
+        toBeCloseTo(math.toRadianDirection(150), OCLOCK_05);
+        toBeCloseTo(math.toRadianDirection(180), OCLOCK_06);
+        toBeCloseTo(math.toRadianDirection(210), OCLOCK_07);
+        toBeCloseTo(math.toRadianDirection(240), OCLOCK_08);
+        toBeCloseTo(math.toRadianDirection(270), OCLOCK_09);
+        toBeCloseTo(math.toRadianDirection(300), OCLOCK_10);
+        toBeCloseTo(math.toRadianDirection(330), OCLOCK_11);
+        toBeCloseTo(math.toRadianDirection(360), OCLOCK_12);
+        toBeCloseTo(math.toRadianDirection(390), OCLOCK_01);
+      });
+    });
+
+    describe('toDegreeDirection', function() {
+      it('converts a direction in radians to degrees', function() {
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * -1), 120);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 0), 90);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 1), 60);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 2), 30);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 3), 0);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 4), 330);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 5), 300);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 6), 270);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 7), 240);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 8), 210);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 9), 180);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 10), 150);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 11), 120);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 12), 90);
+        toBeCloseTo(math.toDegreeDirection(OCLOCK_02 * 13), 60);
+      });
     });
   });
 

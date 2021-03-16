@@ -93,10 +93,14 @@ Returns the difference between the a and b, meant to pass into the Array.sort me
 Returns the reversed difference between a and b, meant to pass into the Array.sort method as an alternate to the default alphabetical.</li>
 <li><strong>splitUint</strong>(num:int):Array<br />
 Returns an array representing each digit of an integer.</li>
-<li><strong>toDegrees</strong>(radians:Number, offset:Boolean = false):Number<br />
-Converts an angle in radians to degrees. By default, just returns an angle of the same amount measured in degrees, but when set to true will also account for offsetting by 1/4 turn.</li>
-<li><strong>toRadians</strong>(degrees:Number, offset:Boolean = false):Number<br />
-Converts an angle in degrees to radians. By default, just returns an angle of the same amount measured in radians, but when set to true will also account for offsetting by 1/4 turn.</li>
+<li><strong>toDegrees</strong>(radians:Number):Number<br />
+Converts radians to degrees.</li>
+<li><strong>toDegreeDirection</strong>(radians:Number):Number<br />
+Converts an angle in radians to a direction in degrees, between 0 and 360.</li>
+<li><strong>toRadians</strong>(degrees:Number):Number<br />
+Converts degrees to radians.</li>
+<li><strong>toRadianDirection</strong>(degrees:Number):Number<br />
+Converts an angle in degrees to direction radians, between 0 and Math.PI * 2.</li>
 <li><strong>total</strong>(array:*):Number<br />
 Calculates the total in an array or list of values. Truthy values will also be totaled as 1s and falsey values as 0s.</li>
 </ul>

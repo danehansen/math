@@ -200,12 +200,24 @@ export function splitUint(num) {
   return split;
 }
 
-export function toDegrees(radians, offset = false) {
-  return ((-radians + (offset ? Math.PI / 2 : 0)) * 180) / Math.PI;
+export function toDegrees(radians) {
+  return radians * 180 / Math.PI;
 }
 
-export function toRadians(degrees, offset = false) {
-  return ((-degrees - (offset ? 90 : 0)) * Math.PI) / 180;
+export function toDegreeDirection(radians) {
+  const degrees = toDegrees(-radians);
+  return modulo(degrees + 90, 360);
+}
+
+export function toRadians(degrees) {
+  return degrees * Math.PI / 180;
+}
+
+export function toRadianDirection(degrees) {
+  const circ = Math.PI * 2;
+  const radians = toRadians(-degrees);
+  const offset = radians + circ * 0.25;
+  return modulo(offset, circ);
 }
 
 export function total(array) {
