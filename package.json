@@ -5,8 +5,8 @@
   "main": "danehansen-math.min.js",
   "scripts": {
     "buildindex": "package-helpers-buildindex srcHtml=./src/index.html srcReadme=./README.md dest=./index.html",
-    "coverage-report": "nyc --reporter=html mocha  --require babel-register",
-    "coverage": "nyc mocha  --require babel-register",
+    "coverage-report": "npm run min && nyc --reporter=html mocha  --require babel-register",
+    "coverage": "npm run min && nyc mocha  --require babel-register",
     "max": "webpack",
     "min": "webpack -p",
     "test": "mocha --require babel-register",
