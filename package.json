@@ -1,6 +1,6 @@
 {
   "name": "@danehansen/math",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "math",
   "main": "danehansen-math.min.js",
   "scripts": {
@@ -43,10 +43,10 @@
     "@babel/register": "^7.13.8",
     "@danehansen/package-helpers": "^0.2.2",
     "babel-loader": "^8.0.0",
-    "chai": "^3.5.0",
-    "mocha": "^3.3.0",
-    "nyc": "^10.3.2",
-    "sinon": "^2.2.0",
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.4",
     "webpack": "^2.5.1"
   },
   "repository": {
