@@ -160,12 +160,6 @@ export function randomBoolean() {
   return Math.random() > 0.5 ? true : false;
 }
 
-// TODO: deprecate
-export function relativePercentage(start, end, current) {
-  console.log("relativePercentage is deprecated. plz switch to normalize");
-  return normalize(start, end, current);
-}
-
 export function round(num, increment = 1) {
   return increment * Math.round(num / increment);
 }
