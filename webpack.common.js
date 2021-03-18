@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   entry: {
     app: './src/math.js',
@@ -17,5 +19,6 @@ module.exports = {
     filename: 'danehansen-math.min.js',
     library: ['danehansen', 'math'],
     libraryTarget: 'umd',
+    path: __dirname,
   },
 }

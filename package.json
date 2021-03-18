@@ -7,8 +7,8 @@
     "buildindex": "package-helpers-buildindex srcHtml=./src/index.html srcReadme=./README.md dest=./index.html",
     "coverage-report": "npm run min && nyc --reporter=html mocha  --require @babel/register",
     "coverage": "npm run min && nyc mocha  --require @babel/register",
-    "max": "webpack",
-    "min": "webpack -p",
+    "max": "webpack --config webpack.dev.js",
+    "min": "webpack --config webpack.prod.js",
     "test": "mocha --require @babel/register",
     "test-watch": "mocha --require @babel/register -w",
     "pub": "npm publish --access public",
@@ -47,7 +47,9 @@
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
     "sinon": "^9.2.4",
-    "webpack": "^2.5.1"
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0",
+    "webpack-merge": "^5.7.3"
   },
   "repository": {
     "type": "git",
