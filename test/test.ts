@@ -7,11 +7,11 @@ const TRUNCATE = 100000;
 const RANGE = 10;
 const REPEAT = 100;
 
-function randomConstraint(range = RANGE) {
+function randomConstraint(range = RANGE):number {
   return Math.random() * range * 2 - range;
 }
 
-function repeatTest(func, results) {
+function repeatTest(func, results?:Array<number>) {
   for (let i = 0; i < REPEAT; i++) {
     const result = func();
     if (results) {
@@ -20,7 +20,7 @@ function repeatTest(func, results) {
   }
 }
 
-function distance(pointA, pointB) {
+function distance(pointA, pointB):number {
   return Math.sqrt(
     Math.pow(pointA.x - pointB.x, 2) + Math.pow(pointA.y - pointB.y, 2)
   );
@@ -473,10 +473,9 @@ describe("math", function() {
         function() {
           const uint = math.random(0, 10000000, true);
           const result = math.splitUint(uint);
-          const split = String(uint).split("");
-          for (let i = 0, length = split.length; i < length; i++) {
-            split[i] = parseInt(split[i]);
-          }
+          const split = String(uint).split("").map((str) => {
+            return parseInt(str)
+          })
           expect(result).to.deep.equal(split);
         },
         null
