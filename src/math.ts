@@ -1,4 +1,4 @@
-export function average(...args) {
+export function average(...args):number {
   const first = args[0];
   const array = typeof first === "number" ? args : first;
   let total = 0;
@@ -8,7 +8,7 @@ export function average(...args) {
   return total / array.length;
 }
 
-export function ceil(num, increment = 1) {
+export function ceil(num, increment = 1):number {
   return increment * Math.ceil(num / increment);
 }
 
@@ -40,11 +40,11 @@ export function circleIntersection(centerA, radiusA, centerB, radiusB) {
   return points;
 }
 
-export function ease(current, dest, speed = 0.05) {
+export function ease(current, dest, speed = 0.05):number {
   return (current += (dest - current) * speed);
 }
 
-export function easeProp(targ, key, dest, speed) {
+export function easeProp(targ, key, dest, speed):number {
   const current = ease(targ[key], dest, speed);
   targ[key] = current;
   return current;
@@ -58,11 +58,11 @@ export function euclid(a, b) {
   }
 }
 
-export function floor(num, increment = 1) {
+export function floor(num, increment = 1):number {
   return increment * Math.floor(num / increment);
 }
 
-export function intLength(num) {
+export function intLength(num):number {
   if (!num) {
     return 0;
   }
@@ -75,7 +75,7 @@ export function intLength(num) {
   return len;
 }
 
-export function luhn(num) {
+export function luhn(num):boolean {
   let check;
   let even = true;
   let total = 0;
@@ -99,7 +99,7 @@ export function luhn(num) {
   return check === numCheck;
 }
 
-export function modulo(num, limit) {
+export function modulo(num, limit):number {
   if (!limit) {
     return 0;
   }
@@ -113,7 +113,7 @@ export function modulo(num, limit) {
   }
 }
 
-export function normalize(low, high, value) {
+export function normalize(low, high, value):number {
   return (value - low) / (high - low);
 }
 
@@ -131,7 +131,7 @@ export function primes(limit) {
   return primes;
 }
 
-export function random(limitA = 1, limitB = 0, round = false, choke = 1) {
+export function random(limitA = 1, limitB = 0, round = false, choke = 1):number {
   let total = 0;
   if (!round) {
     for (let i = 0; i < choke; i++) {
@@ -152,15 +152,15 @@ export function randomItem(array, choke = 1) {
   return array[random(0, array.length - 1, true, choke)];
 }
 
-export function randomDirection() {
+export function randomDirection():number {
   return Math.random() > 0.5 ? 1 : -1;
 }
 
-export function randomBoolean() {
+export function randomBoolean():boolean {
   return Math.random() > 0.5 ? true : false;
 }
 
-export function round(num, increment = 1) {
+export function round(num, increment = 1):number {
   return increment * Math.round(num / increment);
 }
 
@@ -175,11 +175,11 @@ export function shuffle(array, duplicate) {
   return shuffledArray;
 }
 
-export function sortAscending(a, b) {
+export function sortAscending(a, b):number {
   return a > b ? 1 : a < b ? -1 : 0;
 }
 
-export function sortDescending(a, b) {
+export function sortDescending(a, b):number {
   return a > b ? -1 : a < b ? 1 : 0;
 }
 
@@ -194,27 +194,27 @@ export function splitUint(num) {
   return split;
 }
 
-export function toDegrees(radians) {
+export function toDegrees(radians):number {
   return radians * 180 / Math.PI;
 }
 
-export function toDegreeDirection(radians) {
+export function toDegreeDirection(radians):number {
   const degrees = toDegrees(-radians);
   return modulo(degrees + 90, 360);
 }
 
-export function toRadians(degrees) {
+export function toRadians(degrees):number {
   return degrees * Math.PI / 180;
 }
 
-export function toRadianDirection(degrees) {
+export function toRadianDirection(degrees):number {
   const circ = Math.PI * 2;
   const radians = toRadians(-degrees);
   const offset = radians + circ * 0.25;
   return modulo(offset, circ);
 }
 
-export function total(array) {
+export function total(array):number {
   let sum = 0;
   for (let i = 0, length = array.length; i < length; i++) {
     const value = array[i];

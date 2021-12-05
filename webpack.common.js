@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './src/math.js',
+    app: './src/math.ts',
   },
   module: {
     rules: [
@@ -11,6 +11,13 @@ module.exports = {
         test: /\.js$/,
         use: [{
           loader: 'babel-loader',
+        }],
+      },
+      {
+        exclude: [/node_modules/],
+        test: /\.ts$/,
+        use: [{
+          loader: 'ts-loader',
         }],
       },
     ],

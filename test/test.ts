@@ -37,7 +37,7 @@ describe("math", function() {
     });
   });
 
-  describe("average", function() {
+  describe.only("average", function() {
     it("averages numbers in an array", function() {
       expect(math.average([1, 2, 3])).to.equal(2);
     });
