@@ -1,8 +1,9 @@
 {
   "name": "@danehansen/math",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "math",
   "main": "danehansen-math.min.js",
+  "types": "./src/math.d.ts",
   "scripts": {
     "buildindex": "package-helpers-buildindex srcHtml=./src/index.html srcReadme=./README.md dest=./index.html",
     "coverage-report": "npm run min && nyc --reporter=html mocha  --require @babel/register",
