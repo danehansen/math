@@ -25,8 +25,10 @@ module.exports = {
   output: {
     filename: 'danehansen-math.min.js',
     globalObject: 'this',
-    library: ['danehansen', 'math'],
-    libraryTarget: 'umd',
+    library: {
+      name: ['danehansen', 'math'],
+      type: 'umd',
+    },
     path: __dirname,
   },
 }

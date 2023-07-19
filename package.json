@@ -1,7 +1,7 @@
 {
   "name": "@danehansen/math",
   "sideEffects": false,
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "math",
   "main": "danehansen-math.min.js",
   "types": "./src/math.d.ts",
